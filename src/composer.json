@@ -1,0 +1,21 @@
+{
+    "name": "javier/proyecto1",
+    "description": "Un proyecto de ejemplo",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Javier\\Proyecto1\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Javier Sánchez Solera"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ramsey/uuid": "^4.9",
+        "nesbot/carbon": "^3.10.3",
+        "psr/http-message": "^2.0"
+    }
+}
