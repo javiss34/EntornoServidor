@@ -2,6 +2,7 @@
 
 include_once "vendor/autoload.php";
 include_once "env.php";
+include_once "auxiliar/funciones-aux.php";
 
 use Phroute\Phroute\RouteCollector;
 use Phroute\Phroute\Exception\HttpRouteNotFoundException;
@@ -24,6 +25,32 @@ $router->get('/administration', function(){
 
 $router->get('/coches', function (){
     return include_once "admin/views/coches.php";
+});
+
+$router->get('/letra-dni',function () {
+
+    $letra_dni="";
+    if(isset($_GET['dni'])){
+        $letra_dni= calcularLetraDni($_GET['dni']);
+    }else{
+        $letra_dni= "No se ha recibido ningun parámetro";
+    }
+    include_once DIRECTORIO_ADMIN_VISTAS."dni.php";
+
+});
+
+$router->post('/letra-dni',function (){
+    return calcularLetraDni($_POST['dni']);
+});
+
+$router->get('/generar-contrasenia',function (){
+    $contrasenia="";
+    if(isset($_GET['contrasenia'])){
+        $contrasenia = "Contraseña generada:<br>".generarContrasenia($_GET['contrasenia']);
+    }else{
+        $contrasenia = "No has dicho el tamaño de la contraseña";
+    }
+    include_once DIRECTORIO_ADMIN_VISTAS."generarContraseña.php";
 });
 
 
