@@ -9,7 +9,7 @@
     >
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="sidebarMenuLabel">
-                Netflix
+                Tesla
             </h5>
             <button
                 type="button"
@@ -27,7 +27,7 @@
                     <a
                         class="nav-link d-flex align-items-center gap-2 active"
                         aria-current="page"
-                        href="#"
+                        href="/"
                     >
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#house-fill"></use>
@@ -36,11 +36,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2" href="/administration/coches">
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#file-earmark"></use>
                         </svg>
-                        Películas
+                        Coches
                     </a>
                 </li>
                 <li class="nav-item">
@@ -48,7 +48,7 @@
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#cart"></use>
                         </svg>
-                        Videojuegos
+                        Accesorios
                     </a>
                 </li>
                 <li class="nav-item">
@@ -56,7 +56,7 @@
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#people"></use>
                         </svg>
-                        Customers
+                        Clientes
                     </a>
                 </li>
                 <li class="nav-item">
@@ -64,7 +64,7 @@
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#graph-up"></use>
                         </svg>
-                        Reports
+                        Informes
                     </a>
                 </li>
                 <li class="nav-item">
@@ -72,7 +72,7 @@
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#puzzle"></use>
                         </svg>
-                        Integrations
+                        Integraciones
                     </a>
                 </li>
             </ul>

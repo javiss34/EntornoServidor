@@ -11,7 +11,7 @@ include_once ("template/subheader.php");
     <!--Contenido HTML de  mi página de Welcome-->
     <br> <br> <br>
     <div class="texto">
-        <h1>Bienvenido al panel de administración de Netflix</h1>
+        <h1>Bienvenido al panel de administración de Tesla</h1>
         <p>
             Funcionalidades de Backend
         </p>
