@@ -6,12 +6,14 @@ services:
       context: .docker
       dockerfile: Dockerfile
     container_name: php_apache
+    user: javier:javier
 
     volumes:
       - ./src/:/var/www/html
       - .docker/apache/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+      - .docker/apache/apache2.conf:/etc/apache2/apache2.conf
       - .docker/php/php.ini:/usr/local/etc/php/php.ini-development
-      #- .docker/xdebug/debug.ini:/usr/local/bin/php/conf.d/debug.ini
+      - .docker/xdebug/debug.ini:/usr/local/etc/php/conf.d/debug.ini
 
     expose:
       - 80

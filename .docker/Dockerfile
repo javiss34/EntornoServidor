@@ -1,4 +1,4 @@
-FROM php:8.4-apache
+FROM php:8.3-apache
 
 RUN a2enmod rewrite
 
@@ -39,12 +39,14 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 
 WORKDIR /var/www/html
 
+RUN useradd javier && usermod -aG sudo javier
+
 #Instalación de composer
 COPY --from=composer:2.8.11 /usr/bin/composer /usr/local/bin/composer
 
 #Instalación de Xdebug
 RUN pecl install xdebug && docker-php-ext-enable xdebug
-COPY xdebug/debug.ini "${PHP_INI_DIR}/conf.d"
+#COPY xdebug/debug.ini "${PHP_INI_DIR}/conf.d"
 
 #Instalación de PHPUnit
 RUN composer global require phpunit/phpunit && ln -s /var/www/html/vendedor/bin/phpunit /usr/local/bin/phpunit
