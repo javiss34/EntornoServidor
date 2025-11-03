@@ -4,11 +4,47 @@ include_once "vendor/autoload.php";
 include_once "env.php";
 include_once "auxiliar/funciones-aux.php";
 
-use Phroute\Phroute\RouteCollector;
 use Phroute\Phroute\Exception\HttpRouteNotFoundException;
+use Phroute\Phroute\RouteCollector;
+use App\Controller\UserController;
 
 //Crea una instancia del router
 $router = new RouteCollector();
+
+//Rutas de mi aplicación
+//API REST CRUD
+$router->get('/user',[UserController::class,'index']);
+$router->get('/user/{id}',[UserController::class,'show']);
+$router->post('/user',[UserController::class,'store']);
+$router->put('/user/{id}',[UserController::class,'update']);
+$router->delete('/user/{id}',[UserController::class,'destroy']);
+
+$router->get('/car',[CarController::class,'index']);
+$router->get('/car/{id}',[CarController::class,'show']);
+$router->post('/car',[CarController::class,'store']);
+$router->put('/car/{id}',[CarController::class,'update']);
+$router->delete('/car/{id}',[CarController::class,'destroy']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Define las rutas a las que va a responder mi aplicación web
 $router->any('/', function(){
@@ -61,36 +97,6 @@ $router->get('/administration/car/{$id}/edit',function($id){
     include_once "admin/views/edit-coche.php";
 });
 
-//Rutas de trabajo con coches
-$router->post('/car',function (){
-    var_dump($_POST);
-    var_dump($_FILES);
-    $carpetas = scandir(__DIR__);
-
-    if(!array_search('uploaded',$carpetas)){
-        mkdir(__DIR__."/uploaded");
-        move_uploaded_file($_FILES['imagen']['tmp_name'],__DIR__."/uploaded/".$_FILES['imagen']['name']);
-    }else{
-        move_uploaded_file($_FILES['imagen']['tmp_name'],__DIR__."/uploaded/".$_FILES['imagen']['name']);
-    }
-
-});
-
-$router->delete('/car/{$id}',function ($id){
-    //Ruta para realizar el borrado de un coche
-});
-
-$router->put('/car/{$id}',function ($id){
-    //Instrucciones para modificar datos de coche ya guardado
-});
-
-$router->get('/car',function (){
-    //Devuelve los datos de todos los coches
-});
-
-$router->get('/car/{$id}',function ($id){
-    //Devuelve los datos de uno de los coches
-});
 
 try {
     # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
